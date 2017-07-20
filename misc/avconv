@@ -1,0 +1,26 @@
+# it's libav-tools in repos, usually. Same commands should apply for ffmpeg
+
+# convert a video to 480p. Useful if you have an old machine and can't reproduce a 720p
+# It may take few hours, that is why you probably want to disown the terminal
+
+~: avconv -i input.mp4 -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 output.mp4 &
+~: disown
+
+# convert all videos in a folder (in this case .mkv) in 480p mp4
+
+for f in *.mkv; do avconv -i "$f" -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.mkv}.mp4"; & 
+
+# convert all wma in mp3
+
+for f in *.wma; do avconv -i "$f" -ab 192k "${f%.wma}.mp3"; 
+
+# merge audio and video
+
+# Extract audio from a video
+# "$0" is the input file. the m4a output is fine for mp4 input, you may need to change it if you have other formats
+-i "$0" -map 0:1 -c:a copy "${0%%.*}".m4a
+
+
+# batch extract audio from video
+
+for i in *.mp4; do avconv -i "${i}" -map 0:1 -c:a copy "${i%.mp4}.m4a"; done
