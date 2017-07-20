@@ -4,4 +4,4 @@
 ${color1}${hr}
 ${font Monospace:bold:size=10}${alignc}${color5}T O D O	 
 ${color1}${hr}
-${font sans-serif:normal:size=8}${tail /home/tombom/.cdf.txt 30 (2)}
+${font sans-serif:normal:size=8}${tail $HOME/.cdf.txt 30 (2)}
