@@ -1,8 +1,0 @@
-# How to add the GNU Terry Pratchett to dokuwiki
-
-# Add this line between the <head> tags in /lib/tpl/templateName/main.php
-
-<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-
-# GNU Terry Pratchett is a way to remember and honor Terry Pratchett.
-# For more infos go here: http://www.gnuterrypratchett.com
