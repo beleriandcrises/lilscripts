@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#
 # requires ccxt. To install on debian:
 #sudo pip install ccxt
-#
+
 # If you don't have pip install with with:
 #sudo apt-get install python-pip
-#
+
 # More infos on https://github.com/ccxt/ccxt
 
 # To put it in your conky place the script somewhere, chmod +x and in your conky file put a line like this
-# ${font Monospace:normal:size=8}${color1}${texeci 300 python /path/to/your/script/coinmarketcap.py}
+# ${font Monospace:normal:size=8}${color1}${texeci 300 python /path/to/your/script/conkymarketcap.py}
 
 
 import ccxt
@@ -30,8 +31,9 @@ for coin in coins:
 	coinWeek=cointick.get('percent_change_7d')
 	coinDay=cointick.get('percent_change_24h')
 	coinHour=cointick.get('percent_change_1h')
-	print(coin +" "+coinPrice+"\nW("+coinWeek+") D("+coinDay+") H("+coinHour+")\n")
+	print(coin +" "+str(round(float(coinPrice),3))+"\nW("+coinWeek+") D("+coinDay+") H("+coinHour+")\n")
 	
+
 print("\n\n")
 # To print the total value of your portfolio, add your currencies and quantity like in the example
 
@@ -48,7 +50,7 @@ for pair in portfolio.items():
 	coinTotal=coinPrice*pair[1]
 	total=total+coinTotal
 	
-print "The total value of your portfolio in EUR is "+ str(total)
+print "Total value in EUR "+ str(round(total,2))
 
 
 
