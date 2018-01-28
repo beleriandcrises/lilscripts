@@ -33,7 +33,7 @@ for coin in coins:
 	print(coin +" "+coinPrice+"\nW("+coinWeek+") D("+coinDay+") H("+coinHour+")\n")
 	
 print("\n\n")
-# To print the total value of your portfolio, remove the triple quotes from up and down and add your currencies and quantity like in the example
+# To print the total value of your portfolio, add your currencies and quantity like in the example
 
 
 portfolio={'LTC': 9, 'XMR': 3, 'MIOTA': 402, 'BCH': 0.46, 'ETH':8, 'XLM':9500, 'XRP':805, 'EOS':530}
