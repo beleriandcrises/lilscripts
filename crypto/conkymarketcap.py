@@ -22,7 +22,7 @@ cmc=ccxt.coinmarketcap()
 # Some tickers in coinmarketcap can be unpredictable, like 'MIOTA' for iota. If it doesn't work check your ticker for coinmarketcap online
 # The coins will appear on the list in the order you put them
 
-coins=['ETH','LTC', 'XLM', 'XMR', 'XRP', 'EOS', 'REQ', 'BCH', 'MIOTA']
+coins=['ETH','LTC', 'XLM', 'XMR', 'XRP', 'EOS', 'REQ', 'BCH', 'MIOTA', 'XRB']
 
 for coin in coins:
 	cointick=dict(cmc.fetch_ticker(coin+'/EUR'))
@@ -34,11 +34,11 @@ for coin in coins:
 	print(coin +" "+str(round(float(coinPrice),3))+"\nW("+coinWeek+") D("+coinDay+") H("+coinHour+")\n")
 	
 
-print("\n\n")
+print("\n")
 # To print the total value of your portfolio, add your currencies and quantity like in the example
 
 
-portfolio={'LTC': 9, 'XMR': 3, 'MIOTA': 402, 'BCH': 0.46, 'ETH':8, 'XLM':9500, 'XRP':805, 'EOS':530}
+portfolio={'LTC': 9, 'XMR': 3, 'MIOTA': 402, 'ETH':8.849, 'XLM':10034, 'XRP':805, 'EOS':538, 'REQ':1104, 'XRB':51}
 
 total=0.0
 
@@ -51,13 +51,3 @@ for pair in portfolio.items():
 	total=total+coinTotal
 	
 print "Total value in EUR "+ str(round(total,2))
-
-
-
-
-
-
-
-
-
-
