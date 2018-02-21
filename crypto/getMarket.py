@@ -1,12 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# requires ccxt. To install on debian:
-#sudo pip install ccxt
-
-# If you don't have pip install with with:
-#sudo apt-get install python-pip
-
+# requires ccxt.
 # More infos on https://github.com/ccxt/ccxt
 
 # To put it in your conky place the script somewhere, chmod +x and in your conky file put a line like this
@@ -22,7 +17,7 @@ cmc=ccxt.coinmarketcap()
 # Some tickers in coinmarketcap can be unpredictable, like 'MIOTA' for iota. If it doesn't work check your ticker for coinmarketcap online
 # The coins will appear on the list in the order you put them
 
-coins=['ETH','LTC', 'XLM', 'XMR', 'XRP', 'EOS', 'REQ', 'BCH', 'MIOTA', 'XRB']
+coins=['ETH','LTC', 'XLM', 'XMR', 'XRP', 'EOS', 'MIOTA', 'BTC','NANO']
 
 for coin in coins:
 	cointick=dict(cmc.fetch_ticker(coin+'/EUR'))
@@ -34,20 +29,3 @@ for coin in coins:
 	print(coin +" "+str(round(float(coinPrice),3))+"\nW("+coinWeek+") D("+coinDay+") H("+coinHour+")\n")
 	
 
-print("\n")
-# To print the total value of your portfolio, add your currencies and quantity like in the example
-
-
-portfolio={'LTC': 9, 'XMR': 3, 'MIOTA': 402, 'ETH':8.849, 'XLM':10034, 'XRP':805, 'EOS':538, 'REQ':1104, 'XRB':51}
-
-total=0.0
-
-for pair in portfolio.items():
-	cointick=dict(cmc.fetch_ticker(pair[0]+'/EUR'))
-	cointick=cointick.get('info')
-	coinPrice=cointick.get('price_eur')
-	coinPrice=float(coinPrice)
-	coinTotal=coinPrice*pair[1]
-	total=total+coinTotal
-	
-print "Total value in EUR "+ str(round(total,2))

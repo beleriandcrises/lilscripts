@@ -1,0 +1,36 @@
+conky.config = {
+  alignment = 'bottom',
+  background = false,
+  border_width = 1,
+  border_inner_margin = 4,
+  default_color = '00f100',
+  default_outline_color = '051317',
+  default_shade_color = '051317',
+  own_window_colour = '000000',
+  own_window_argb_visual = true,
+  own_window_argb_value = 0,
+  double_buffer = true,
+  draw_borders = false,
+  draw_graph_borders = false,
+  draw_outline = false,
+  draw_shades = false,
+  use_xft = true,
+  xftalpha = 0.5,
+  font = 'SFNS Display:style=Regular:size=10',
+  gap_x = 0,
+  gap_y = 6,
+  minimum_height = 5,
+  minimum_width = 1920,
+  own_window = true,
+  own_window_class = 'Conky',
+  own_window_type = 'desktop',
+  stippled_borders = 0,
+  update_interval = 1.0,
+  own_window_transparent = true,
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  short_units = true,
+  use_spacer = 'none'
+}
+conky.text = [[
+  UPTIME: ${color ffffff}$uptime_short ${color}    CPU: ${cpugraph cpu0 14,65 00f100 ffffff s}    IP: ${color ffffff}${addr wlo1} ${color}    RAM ${color ffffff}${memperc}%${color}    SWAP ${color ffffff}${swapperc}%${color}    HDD ${color ffffff}${fs_used_perc /}%${color}    CPU ${color ffffff}${execi 300 sensors | grep temp2 | cut -c16-17 ;}°C${color}    ${time %m-%d %a %H:%M}  
+]]
